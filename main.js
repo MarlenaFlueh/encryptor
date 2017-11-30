@@ -10,7 +10,11 @@ const rot13 = message => {
   let key = '';
 
   for (let i = 0; i < message.length; i++) {
-    key += abc[(abc.indexOf(message[i]) + 13) % 26];
+    if (abc.indexOf(message[i]) === -1) {
+      key += message[i];
+    } else {
+      key += abc[(abc.indexOf(message[i]) + 13) % 26];
+    }
   }
 
   return key; 
