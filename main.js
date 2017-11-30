@@ -7,15 +7,31 @@ input.addEventListener('input', event => {
 });
 
 const rot13 = message => {
-  let key = '';
+  let result = '';
 
   for (let i = 0; i < message.length; i++) {
     if (abc.indexOf(message[i]) === -1) {
-      key += message[i];
+      result += message[i];
     } else {
-      key += abc[(abc.indexOf(message[i]) + 13) % 26];
+      result += abc[(abc.indexOf(message[i]) + 13) % abc.length];
     }
   }
 
-  return key; 
-}
+  return result; 
+};
+
+const vigenere = (message, key) => {
+  let result = '';
+
+  for (let i = 0; i < message.length; i++) {
+    if (abc.indexOf(message[i]) === -1) {
+      result += message[i];
+    } else {
+      const keyIndex = abc.indexOf(key[i % key.length]);
+      const messageIndex = abc.indexOf(message[i]);
+      result += abc[(messageIndex + keyIndex) % abc.length];
+    }
+  }
+
+  return result;
+};
