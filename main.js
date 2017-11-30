@@ -6,18 +6,22 @@ input.addEventListener('input', event => {
   p.innerHTML = rot13(event.target.value);
 });
 
-const rot13 = message => {
+const shiftByValue = (message, shift) => {
   let result = '';
-
-  for (let i = 0; i < message.length; i++) {
-    if (abc.indexOf(message[i]) === -1) {
-      result += message[i];
-    } else {
-      result += abc[(abc.indexOf(message[i]) + 13) % abc.length];
+  
+    for (let i = 0; i < message.length; i++) {
+      if (abc.indexOf(message[i]) === -1) {
+        result += message[i];
+      } else {
+        result += abc[(abc.indexOf(message[i]) + shift) % abc.length];
+      }
     }
-  }
+  
+    return result;
+};
 
-  return result; 
+const rot13 = message => {
+   return shiftByValue(message, 13);
 };
 
 const vigenere = (message, key) => {
