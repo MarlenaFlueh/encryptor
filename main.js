@@ -9,15 +9,15 @@ input.addEventListener('input', event => {
 const shiftByValue = (message, shift) => {
   let result = '';
   
-    for (let i = 0; i < message.length; i++) {
-      if (abc.indexOf(message[i]) === -1) {
-        result += message[i];
-      } else {
-        result += abc[(abc.indexOf(message[i]) + shift) % abc.length];
-      }
+  for (let i = 0; i < message.length; i++) {
+    if (abc.indexOf(message[i]) === -1) {
+      result += message[i];
+    } else {
+      result += abc[(abc.indexOf(message[i]) + shift) % abc.length];
     }
+  }
   
-    return result;
+  return result;
 };
 
 const rot13 = message => {
