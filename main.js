@@ -16,28 +16,10 @@ const shiftChar = (char, shift) => {
 };
 
 // shiftByValue(message: string, shift: number): string -> shifts a whole message
-const shiftByValue = (message, shift) => {
-  let result = '';
-  
-  for (let i = 0; i < message.length; i++) {
-    result += shiftChar(message[i], shift);
-  }
-  
-  return result;
-};
+const shiftByValue = (message, shift) => message.split('').reduce((result, char) => result += shiftChar(char, shift), '');
 
 // rot13(message: string): string -> shifts message by 13
-const rot13 = message => {
-   return shiftByValue(message, 13);
-};
+const rot13 = message => shiftByValue(message, 13);
 
 // vigenere(message: string, key: string): string -> shifts a message by another string
-const vigenere = (message, key) => {
-  let result = '';
-
-  for (let i = 0; i < message.length; i++) {
-    result += shiftChar(message[i], abc.indexOf(key[i % key.length]));
-  }
-
-  return result;
-};
+const vigenere = (message, key) => message.split('').reduce((result, char, i) => result += shiftChar(char, abc.indexOf(key[i % key.length])), '');
