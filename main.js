@@ -10,9 +10,9 @@ input.addEventListener('input', event => {
 const shiftChar = (char, shift) => {
   if (abc.indexOf(char) === -1) {
     return char;
-  } else {
-    return abc[(abc.indexOf(char) + shift) % abc.length];
   }
+  
+  return abc[(abc.indexOf(char) + shift) % abc.length];
 };
 
 // shiftByValue(message: string, shift: number): string -> shifts a whole message
