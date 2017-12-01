@@ -1,9 +1,17 @@
-const input = document.querySelector('input');
-const p = document.querySelector('p');
+const messageRot13 = document.querySelector('.messageRot13');
+const rot13Secret = document.querySelector('.rot13Secret');  
 const abc = 'abcdefghijklmnopqrstuvwxyz';
 
-input.addEventListener('input', event => { 
-  p.innerHTML = rot13(event.target.value);
+messageRot13.addEventListener('input', event => { 
+  rot13Secret.innerHTML = rot13(event.target.value);
+});
+
+const messageVigenere = document.querySelector('.messageVigenere');
+const vigenereSecret  = document.querySelector('.vigenereSecret');
+const keyVigenere = document.querySelector('.keyVigenere');
+
+keyVigenere.addEventListener('input', event => {
+  vigenereSecret.innerHTML = vigenere(messageVigenere.value, event.target.value); 
 });
 
 // shiftChar(char: string, shift: number): string -> shifts one char
