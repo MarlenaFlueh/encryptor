@@ -1,4 +1,4 @@
-import { rot13 } from '../lib/encryptor';
+const { rot13 } = require('../lib/encryptor');
 
 const input = document.querySelector('input');
 const p = document.querySelector('p');
