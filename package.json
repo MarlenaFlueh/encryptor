@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha **/**.test.js",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
